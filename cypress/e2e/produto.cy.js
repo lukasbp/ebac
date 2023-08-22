@@ -15,7 +15,7 @@ describe('Funcionalidade página de produtos', () => {
         .click()
     });
 
-    it.only('deve adicionar um produto ao carrinho', () => {
+    it('deve adicionar um produto ao carrinho', () => {
         var quantidade = 3;
 
         cy.get('[class="product-block grid"]')
@@ -30,5 +30,8 @@ describe('Funcionalidade página de produtos', () => {
         cy.get('.woocommerce-message').should('contain', quantidade + ' × “Abominable Hoodie” foram adicionados no seu carrinho.')
     });
 
+    it.only('Deve adicionar produtos usando comando customizado', () => {
+        cy.addProdutos('Abominable Hoodie', 'XL', 'green', '2')
+    });
 
 });
